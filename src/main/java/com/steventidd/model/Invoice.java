@@ -1,4 +1,4 @@
-package com.steventidd;
+package com.steventidd.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
