@@ -1,6 +1,5 @@
 package com.steventidd.service;
 
-import com.steventidd.context.Application;
 import com.steventidd.model.Invoice;
 import com.steventidd.model.User;
 
