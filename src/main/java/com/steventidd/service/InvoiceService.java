@@ -2,10 +2,12 @@ package com.steventidd.service;
 
 import com.steventidd.model.Invoice;
 import com.steventidd.model.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Component
 public class InvoiceService {
 
     private final UserService userService;
@@ -31,5 +33,6 @@ public class InvoiceService {
         invoices.add(invoice);
         return invoice;
     }
+
 
 }

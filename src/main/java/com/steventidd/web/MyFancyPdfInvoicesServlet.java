@@ -26,6 +26,9 @@ public class MyFancyPdfInvoicesServlet extends HttpServlet {
         this.userService = ctx.getBean(UserService.class);
         this.objectMapper = ctx.getBean(ObjectMapper.class);
         this.invoiceService = ctx.getBean(InvoiceService.class);
+
+
+
     }
 
     @Override
