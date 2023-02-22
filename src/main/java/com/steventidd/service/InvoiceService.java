@@ -2,6 +2,7 @@ package com.steventidd.service;
 
 import com.steventidd.model.Invoice;
 import com.steventidd.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,13 +11,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class InvoiceService {
 
-    private final UserService userService;
+    private UserService userService;
 
     public InvoiceService (UserService userService) {
         this.userService = userService;
     }
 
-    List<Invoice> invoices = new CopyOnWriteArrayList<>();
+    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
     public List<Invoice> findAll() {
         return invoices;
     }
