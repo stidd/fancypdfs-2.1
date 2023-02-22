@@ -3,6 +3,7 @@ package com.steventidd.service;
 import com.steventidd.model.Invoice;
 import com.steventidd.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,10 +14,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class InvoiceService {
 
-    private UserService userService;
+    private final UserService userService;
+    private final String cdnUrl;
 
-    public InvoiceService (UserService userService) {
+    public InvoiceService (UserService userService, @Value("${cdn.url}") String cdnUrl) {
         this.userService = userService;
+        this.cdnUrl = cdnUrl;
     }
 
     @PostConstruct
@@ -43,7 +46,7 @@ public class InvoiceService {
 
 
         // TODO real pdf creation and storing it on network server
-        Invoice invoice = new Invoice(userId, amount, "http://www.africau.edu/images/default/sample.pdf");
+        Invoice invoice = new Invoice(userId, amount, cdnUrl + "/images/default/sample.pdf");
         invoices.add(invoice);
         return invoice;
     }
